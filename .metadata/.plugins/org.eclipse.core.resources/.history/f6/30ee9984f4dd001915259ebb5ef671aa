@@ -1,0 +1,76 @@
+package com.bb.controller;
+
+import java.lang.ProcessBuilder.Redirect;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.bb.pojo.Role;
+import com.bb.pojo.User;
+import com.bb.pojo.UserRoleKey;
+import com.bb.service.IRoleService;
+import com.bb.service.IUserService;
+
+@Controller
+@RequestMapping("/user")
+public class UserController {
+	
+	@Autowired
+	private IUserService userService;
+	@Autowired
+	private IRoleService roleService;
+	
+	/**
+	 * 进入添加或者修改的方法之前跳转的方法
+	 * @return
+	 */
+	@RequestMapping("/query")
+	public String query(Model m){
+		// 查询所有的角色信息
+		System.out.println(userService.Userquery(null));
+		List<User> list = userService.Userquery(null);
+		System.out.println(list);
+		m.addAttribute("list", list); 
+		return "user/user";
+	}
+	
+	/**
+	 * 进入添加或者修改的方法之前跳转的方法
+	 * @return
+	 */
+	@RequestMapping("/goAddOrUpdate")
+	public String goAddOrUpdate(User user,Model m){
+		// 查询所有的角色信息
+		
+		List<Role> roles = roleService.query();
+		m.addAttribute("roles", roles);		 
+		//List<User> list = userService.Userquery(user); 
+		//m.addAttribute("user", list.get(0));
+		
+		return "user/user_insert";
+	}
+
+	/**
+	 * 添加用户及权限
+	 * @return
+	 */
+	@RequestMapping("/insertOrUpdate")
+	public String saveOrUpdate(User user, int[] roleIds) {
+		System.out.println(user+","+roleIds);
+		List<UserRoleKey> list = new ArrayList<UserRoleKey>();
+		SimpleDateFormat sf = new SimpleDateFormat();
+		int userId = Integer.parseInt((sf.format(new Date())).replaceAll("/",""));
+		for(int roleId: roleIds) {
+			UserRoleKey userRoleKey = new UserRoleKey(userId, roleId);
+			list.add(userRoleKey);
+		}
+		userService.insertUserAndRoles(list);
+		userService.insertUser(user);
+		return "redirect:query";
+	}
+}

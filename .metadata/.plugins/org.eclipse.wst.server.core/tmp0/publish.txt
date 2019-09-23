@@ -1,0 +1,8 @@
+#Tomcat publish data
+#Mon Sep 23 20:59:19 CST 2019
+org.eclipse.jst.j2ee.server\:logistics_manager_dao=D\:\\apache-tomcat-7.0.94\\webapp\\logistics_manager_web\\WEB-INF\\lib\\logistics_manager_dao-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:logistics_manager_service=D\:\\apache-tomcat-7.0.94\\webapp\\logistics_manager_web\\WEB-INF\\lib\\logistics_manager_service-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Administrator\\.m2\\repository\\org\\springframework\\spring-web\\4.3.3.RELEASE\\spring-web-4.3.3.RELEASE.jar=D\:\\apache-tomcat-7.0.94\\webapp\\logistics_manager_web\\WEB-INF\\lib\\spring-web-4.3.3.RELEASE.jar
+org.eclipse.jst.jee.server\:logistics_manager_web=D\:\\apache-tomcat-7.0.94\\webapp\\logistics_manager_web
+org.eclipse.jst.j2ee.server\:logistics_manager_pojo=D\:\\apache-tomcat-7.0.94\\webapp\\logistics_manager_web\\WEB-INF\\lib\\logistics_manager_pojo-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:logistics_common=D\:\\apache-tomcat-7.0.94\\webapp\\logistics_manager_web\\WEB-INF\\lib\\logistics_common-0.0.1-SNAPSHOT.jar

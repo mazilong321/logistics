@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bb.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.bb.pojo.UserKey">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="role_id" jdbcType="INTEGER" property="roleId" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.bb.pojo.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="BIGINT" property="phone" />
+    <result column="u1" jdbcType="VARCHAR" property="u1" />
+    <result column="u2" jdbcType="VARCHAR" property="u2" />
+  </resultMap>>
+  <sql id="User_Columns">
+    user_id, user_name, real_name, password, email, phone, u1, u2
+  </sql>
+  <sql id="UserKey_Columns">
+    user_id, user_name, real_name, password, email, phone, u1, u2
+  </sql>
+  <!--加上的sql  -->
+  <select id="Userquery" parameterType="com.bb.pojo.User" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List" />
+  	from t_user
+  	<where>
+  		<if test="userId != null">user_id = #{userId}</if>
+  	</where>
+  </select>
+  
+  <insert id="insertUserAndRoles" parameterType="com.bb.pojo.UserKey">
+  	insert into t_user_role <include refid="Base_Column_List" /> values (#{userId}, #{roleId})
+  </insert>
+  
+  
+  
+  
+  <!--end  -->
+</mapper>

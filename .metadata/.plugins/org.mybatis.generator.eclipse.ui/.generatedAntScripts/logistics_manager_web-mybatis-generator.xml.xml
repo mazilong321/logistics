@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="generate">
+  <target name="generate">
+    <mybatis.generate configfile="D:\esclipse02\logistics_manager\logistics_manager_web\src\main\resources\mybatis-generator.xml" />
+  </target>
+</project>

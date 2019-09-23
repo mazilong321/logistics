@@ -1,0 +1,27 @@
+package com.bb.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class PageController {
+
+	@RequestMapping("/{path}")
+	public String page(@PathVariable String path){
+		
+		return path;
+	}
+	
+	@RequestMapping("/test")
+	@ResponseBody
+	public String Test() {
+		Map<String, String> map = new HashMap<String, String>;
+		map.put("test", "hello");
+		return map;
+	}
+}

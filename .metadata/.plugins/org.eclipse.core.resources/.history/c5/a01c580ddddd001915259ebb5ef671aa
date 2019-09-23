@@ -1,0 +1,58 @@
+package com.bb.mapper;
+
+import com.bb.dto.UserDto;
+import com.bb.pojo.Role;
+import com.bb.pojo.User;
+import com.bb.pojo.UserExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import com.github.pagehelper.PageInfo;
+import com.bb.pojo.UserKey;
+
+public interface UserMapper {
+	long countByExample(UserExample example);
+
+	int deleteByExample(UserExample example);
+
+	int deleteByPrimaryKey(UserKey key);
+
+	int insert(UserKey record);
+
+	int insertSelective(UserKey record);
+
+	List<UserKey> selectByExample(UserExample example);
+
+	int updateByExampleSelective(@Param("record") UserKey record, @Param("example") UserExample example);
+
+	int updateByExample(@Param("record") UserKey record, @Param("example") UserExample example);
+
+	List<User> query(User user);
+
+	Integer addUser(User user);
+
+	Integer updateUser(User user);
+
+	Integer deleteUser(Integer id);
+
+	User queryById(Integer id);
+
+	List<Role> queryRole();
+
+	Integer saveUserAndRole(UserDto dto);
+
+	List<Role> queryRoleByUserId(Integer userId);
+
+	UserDto getUpdateInfo(Integer userId);
+
+	void updateUserAndRole(UserDto dto);
+
+	PageInfo<User> queryUserByPage(UserDto dto);
+
+	List<User> queryByRole(String roleYwy);
+
+	List<User> Userquery(User user);// 查询用户
+
+	void insertUserAndRoles(User user, int[] roleIds);// 新增用户权限
+
+	void insertUser(User user); // 新增用户
+}

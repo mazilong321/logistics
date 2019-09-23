@@ -8,13 +8,14 @@
   <artifactId>logistics_manager_web</artifactId>
   <packaging>war</packaging>
   
-  	<dependencies>
+	  	<dependencies>
 		<!-- 依赖logistics_service -->
 		<dependency>
 			<groupId>com.bb</groupId>
 			<artifactId>logistics_manager_service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<!-- JSP相关 -->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -30,11 +31,7 @@
 			<artifactId>jsp-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-ehcache</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>

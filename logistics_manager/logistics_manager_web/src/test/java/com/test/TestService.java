@@ -1,0 +1,29 @@
+package com.test;
+
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.bb.mapper.UserMapper;
+import com.bb.pojo.User;
+
+public class TestService {
+	
+	private UserMapper userMapper;
+	
+	@Before
+	public void init(){
+		String[] conf = {"spring/spring-mvc.xml","spring/applicationContext-mybatis.xml"};
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(conf);
+		userMapper = ctx.getBean("userMapper", UserMapper.class);
+	}
+	
+	/*
+	 * @Test//根据用户ID查询所有笔记本 public void testDao(){ List<User> list =
+	 * userMapper.Userquery(); for (User user : list) { System.out.println(user); }
+	 * }
+	 */
+}

@@ -1,0 +1,112 @@
+package com.bb.service.impl;
+
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.springframework.stereotype.Service;
+
+import com.bb.dto.UserDto;
+import com.bb.mapper.UserMapper;
+import com.bb.pojo.Role;
+import com.bb.pojo.User;
+import com.bb.pojo.UserExample;
+import com.bb.pojo.UserExample.Criteria;
+import com.bb.service.IRoleService;
+import com.bb.service.IUserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+@Service
+public class UserServiceImpl implements IUserService {
+	
+	@Resource
+	private UserMapper userMapper;
+	
+	@Resource
+	private IRoleService roleService;
+	
+	
+	@Override
+	public List<User> query() {
+		UserExample example = new UserExample();
+		
+		return userMapper.selectByExample(example);
+	}
+
+	
+	@Override
+	public List<User> query(User user) {
+		// TODO Auto-generated method stub		
+		return null;
+	}
+
+	@Override
+	public Integer addUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer updateUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer deleteUser(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User queryById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Role> queryRole() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer saveUserAndRole(UserDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Role> queryRoleByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserDto getUpdateInfo(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateUserAndRole(UserDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public PageInfo<User> queryUserByPage(UserDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> queryByRole(String roleYwy) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
